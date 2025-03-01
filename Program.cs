@@ -17,12 +17,13 @@ class Program
 
         string[] Scopes = { SheetsService.Scope.Spreadsheets };
         string ApplicationName = "Google Sheets API Test";
-        string spreadsheetId = "1-4i-h7FR7TG2ai5yovHhmUnTQm1OMDfEwWkiuNbLzzY"; // 🔹 Replace with actual Google Sheet ID
+        string spreadsheetId = "1jzRGk_FlT33N2Kop3h1GXuDsqFA2JSRakIZz-bmv6hs"; // 🔹 Replace with actual Google Sheet ID
         string databaseSheet = "Database";
         string generationTrackingSheet = "Generation Tracking";
 
         GoogleCredential credential;
-        using (var stream = new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+        using (var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS_JSON"))))
+
         {
             credential = GoogleCredential.FromStream(stream).CreateScoped(Scopes);
         }
