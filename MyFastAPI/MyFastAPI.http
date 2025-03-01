@@ -1,0 +1,6 @@
+@MyFastAPI_HostAddress = http://localhost:5183
+
+GET {{MyFastAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
